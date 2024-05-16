@@ -5,14 +5,13 @@ class Records extends CI_Controller {
 	
 	public function __construct() {
 
-		
+		$this->load->model('Queries', 'queries');
 
 		parent::__construct();
 	}
 	
 	public function Consultare($form, $extra = null) {
 		$data = array();
-		$this->load->model('Queries', 'queries');
 		switch (strtolower($form)) {
 				case 'my_form':
 					if (!$extra) {
@@ -22,7 +21,7 @@ class Records extends CI_Controller {
 
 					if ($extra && strtolower($extra) == 'details') { 
 						$PK_id = $this->input->get("id"); 
-						$data['record_details'] = $PK_id;
+						$data['record_details'] = $this->queries->select_where('*', 'my_form_records', ['id' => $PK_id], false, true);
 						$this->content = 'consultare/my_form_details';
 					}
 				break; 

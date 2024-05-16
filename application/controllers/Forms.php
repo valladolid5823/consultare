@@ -7,6 +7,7 @@ class Forms extends CI_Controller {
 
 	public function __construct() {
 
+		$this->$queries = $this->load->model('Queries');
 		parent::__construct();
 	}
 	
@@ -30,7 +31,7 @@ class Forms extends CI_Controller {
 										'company_name' => $this->input->post("company_name"),
 										'performed_date' => $this->input->post('performed_date'), 
 									);
-									$this->load->model('Queries', 'queries');
+									
 									$PK_id = $this->queries->insert($records_data, 'my_form_records', true); 
 									if($PK_id) {
 										echo '1'; 

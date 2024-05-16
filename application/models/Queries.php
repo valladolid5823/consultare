@@ -23,12 +23,12 @@ class Queries extends CI_Model
 	public function select_where($fields, $table_name, $where, $boolean = false, $single = false) {
 		$query = $this->db->select($fields)->from($table_name)->where($where)->get();
 
-		if ($query->num-rows() > 0):
+		if ($query->num_rows() > 0):
 			if ($boolean == true):
 				return true;
 			else:
 				if ($single == true):
-					return $query->row()->$fileds;
+					return $query->row();
 				else:
 					return $query->result_array();
 				endif;
