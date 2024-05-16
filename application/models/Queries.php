@@ -38,4 +38,42 @@ class Queries extends CI_Model
 		return false;
 
 	}
+
+	public function insert($data, $table, $return_id = false) {
+
+        $this->db->insert($table, $data);
+        
+        if ($this->db->affected_rows() > 0) {
+            if ($return_id) {
+                return $this->db->insert_id();
+            }
+            return true; 
+        } else {
+            return false; 
+        }
+    }
+
+	public function update($data, $table, $condition) {
+
+        $this->db->where($condition);
+        $this->db->update($table, $data);
+
+        if ($this->db->affected_rows() > 0) {
+            return true; 
+        } else {
+            return false; 
+        }
+    }
+    
+    public function delete($table, $condition) {
+
+        $this->db->where($condition);
+        $this->db->delete($table);
+
+        if ($this->db->affected_rows() > 0) {
+            return true; 
+        } else {
+            return false; 
+        }
+    }
 }

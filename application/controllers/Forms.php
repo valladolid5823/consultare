@@ -18,21 +18,26 @@ class Forms extends CI_Controller {
 
 			try {
 				switch (strtolower($form)) {
-
 					case 'my_form':
 						if ($this->input->server('REQUEST_METHOD') === 'POST') {
-							if(isset($_POST['save_header_title'])) { 
-								$records_data = array(
-									'title' => $this->input->post("header_title"),
-									'form_code' -> $this->input->post('form_code'), 
-									'owner_id' => '464',
-								);
+							if(isset($_POST['save_my_form'])) { 
 
-								$PK_id = $this->queries->insert($records_data, 'checklist_form_header', true); 
-								if($PK_id) {
-									echo '1'; 
-									exit();
+								$this->form_validation->set_rules('company_name', 'Company Name', 'required');
+								$this->form_validation->set_rules('performed_date', 'Performed Date', 'required');
+
+								if ($this->form_validation->run()) {
+									$records_data = array(
+										'company_name' => $this->input->post("company_name"),
+										'performed_date' => $this->input->post('performed_date'), 
+									);
+									$this->load->model('Queries', 'queries');
+									$PK_id = $this->queries->insert($records_data, 'my_form_records', true); 
+									if($PK_id) {
+										echo '1'; 
+										exit();
+									}
 								}
+								
 							}
 						}
 						$this->content = 'consultare/my_form';
