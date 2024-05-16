@@ -32,7 +32,7 @@
 					<td><?= $record['company_name'] ?></td>
 					<td><?= date_format(date_create($record['performed_date']), "m/d/Y") ?></td>
 					<td>
-						<a href="<?php echo site_url("Records/Consultare/my_form/details?id=1") ?>"><i class="bi bi-eye"></i></a>
+						<a href="<?php echo site_url("Records/Consultare/my_form/details?id=". $record['id']) ?>"><i class="bi bi-eye"></i></a>
 					</td>
 				</tr>
 				<?php 

@@ -79,14 +79,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
-	<h1>Needed to setup</h1>
+	<h1>Needed to set up</h1>
 
 	<div id="body">
 		<div>1. Create a database name "<b>consultare</b>"</div>
 		<div>
 			2. Import the SQL file located in the root folder of this project into the <b>"consultare"</b> database.
 		</div>
-		
+		<div>
+			3. Access the url <b>http://localhost/codeigniter/Records/Consultare/my_form</b>
+		</div>
 	</div>
 
 </div>
