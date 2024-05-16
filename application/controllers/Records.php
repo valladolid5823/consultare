@@ -2,12 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Records extends CI_Controller {
-	
+
+	protected $queries;
+
 	public function __construct() {
 
-		$this->load->model('Queries', 'queries');
-
-		parent::__construct();
+		parent::__construct(); 
+        $this->load->model('Queries');
+        $this->queries = new Queries();
 	}
 	
 	public function Consultare($form, $extra = null) {

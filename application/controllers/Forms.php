@@ -5,10 +5,13 @@ class Forms extends CI_Controller {
 
 	protected $content = '';
 
+	protected $queries;
+
 	public function __construct() {
 
-		$this->$queries = $this->load->model('Queries');
 		parent::__construct();
+        $this->load->model('Queries');
+        $this->queries = new Queries(); 
 	}
 	
 	public function Consultare($form, $extra = null) {
@@ -34,8 +37,10 @@ class Forms extends CI_Controller {
 									
 									$PK_id = $this->queries->insert($records_data, 'my_form_records', true); 
 									if($PK_id) {
-										echo '1'; 
-										exit();
+										// echo '1'; 
+										// exit();
+										$this->session->set_flashdata('status', 'Form data inserted successfully!');
+										redirect(site_url('Records/Consultare/my_form'));
 									}
 								}
 								

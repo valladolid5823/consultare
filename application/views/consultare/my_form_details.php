@@ -13,7 +13,7 @@
 		</div>
 		<div class="d-flex flex-row align-items-center">
 			<h6 class="mb-0 mr-2">Performed Date: </h6>
-			<div><?= $record_details->performed_date ?></div>
+			<div><?= date_format(date_create($record_details->performed_date), "m/d/Y") ?> </div>
 		</div>
 
 	</div>

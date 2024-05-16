@@ -1,9 +1,17 @@
 <div class="container mt-5">
+	<?php if ($this->session->flashdata('status')) : ?>
+		<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<?= $this->session->flashdata('status') ?>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	<?php endif; ?>
 	<div class="card">
 		<div class="card-header">
-		<h4>My Form Records
-		<a href="<?php echo site_url('Forms/Consultare/my_form') ?>" class="btn btn-primary float-right" >Add New</a>
-		</h4>
+			<h4>My Form Records
+			<a href="<?php echo site_url('Forms/Consultare/my_form') ?>" class="btn btn-primary float-right" >Add New</a>
+			</h4>
 		</div>
 	</div>
 	<div class="mt-2">
