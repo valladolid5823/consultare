@@ -56,5 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 // Form routes
 $route['Forms/Consultare/(:any)'] = 'Forms/Consultare/$1';
 $route['Records/Consultare/(:any)'] = 'Records/Consultare/$1';
+$route['Register/register'] = 'Register/register';
+$route['Register/register_user'] = 'Register/register_user';
 
 
